@@ -99,24 +99,40 @@ input[type='button'] {
   font-size: 16px;
   /* padding-top: 5px; */
   margin: 0 14px;
-}
-#stop {
-  padding-top: 0px;
+  font-size: 0;
 }
 
-#prev,
-#next {
-  padding: 0;
-  max-height: 30px;
-  max-width: 40px;
-  padding-bottom: 2px;
-  font-size: 16px;
-  /* padding: 1px 6px 14px 6px; */
-  border-radius: 4px;
-  background-color: rgb(10, 150, 150);
+#play {
+  background: url('./icons/play.png') no-repeat;
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
 }
+
+#stop {
+  background: url('./icons/stop.png') no-repeat;
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+}
+
+
 #next {
-  background-color: rgb(27, 206, 206);
+  /* background-color: rgb(27, 206, 206); */
+  background: url('./icons/arrowTrack.png') no-repeat;
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+  font-size: 0;
+}
+#prev {
+  /* background-color: rgb(27, 206, 206); */
+  background: url('./icons/arrowTrack.png') no-repeat;
+  transform: scale(-1, 1);
+  width: 40px;
+  height: 40px;
+  background-size: 100% 100%;
+  font-size: 0;
 }
 
 #random {
