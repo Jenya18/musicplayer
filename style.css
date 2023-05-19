@@ -1,0 +1,117 @@
+body {
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.wrapper {
+  padding: 60px 0;
+  border-radius: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255,.3);
+
+  background: rgb(2,0,36);
+background: -moz-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 15%, rgba(0,212,255,1) 100%);
+background: -webkit-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 15%, rgba(0,212,255,1) 100%);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+
+
+box-shadow: 0 0 5px 5px rgba(252, 252, 252, 0.2);
+
+
+
+
+background-image: radial-gradient(circle at 85.36% 111.24%, #ff91b0 0, #ff88b6 7.14%, #ff7fbc 14.29%, #ff76c2 21.43%, #f96dc7 28.57%, #e964cd 35.71%, #d65cd3 42.86%, #be55d8 50%, #a250dd 57.14%, #804fe3 64.29%, #5050e8 71.43%, #0051ec 78.57%, #0054ef 85.71%, #0056f1 92.86%, #0058f1 100%);
+}
+
+input[type="button"] {
+  cursor: pointer;
+  border: 0;
+}
+
+.nameSong {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.gifs img {
+  width: 250px;
+  height: 200px;
+  border-radius: 20px;
+  margin-right: 20px;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+-moz-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+}
+
+
+.volume-block {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#play, #stop {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  padding-top: 5px;
+  margin: 0 14px;
+
+
+}
+#stop {
+  padding-top: 0px;
+}
+
+#prev, #next {
+  padding: 0;
+  height: 30px;
+  width: 40px;
+  padding-bottom: 2px;
+  font-size: 16px;
+  /* padding: 1px 6px 14px 6px; */
+  border-radius: 4px;
+  background-color: rgb(10, 150, 150);
+}
+#next {
+  background-color: rgb(27, 206, 206);
+}
+
+#random {
+  margin: 14px auto 0;
+  display: block;
+  padding: 0;
+  height: 30px;
+  width: 40px;
+  padding-bottom: 2px;
+  font-size: 16px;
+  /* padding: 1px 6px 14px 6px; */
+  border-radius: 4px;
+  background-color: rgb(255, 136, 46);
+}
+
+.controls {
+  padding: 30px;
+  border-radius: 25%;
+  background-color: rgba(2, 2, 2, 0.209);
+}
+
+.lastUpdate {
+  color: #000;
+  font-size: 12px;
+}
