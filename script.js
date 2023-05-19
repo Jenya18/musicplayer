@@ -1,9 +1,8 @@
-
 let audio = new Audio();
 let cur_track = 0;
-let volume_step = 0.10;
+let volume_step = 0.1;
 
-audio.volume = 0.30;
+audio.volume = 0.3;
 
 const randomSong = document.querySelector('#random');
 
@@ -14,13 +13,45 @@ const nameSong = document.querySelector('.nameSong');
 
 const gifBlock = document.querySelector('.gifs');
 
+const timeline = document.querySelector('#timeline');
+let progress = document.createElement('div');
+progress.className = 'progress';
+timeline.appendChild(progress);
+
+timeline.addEventListener('click', function (event) {
+  let timelineWidth = timeline.offsetWidth;
+  let clickX = event.offsetX;
+  let percent = clickX / timelineWidth;
+  let newTime = percent * audio.duration;
+  audio.currentTime = newTime;
+});
+
+audio.addEventListener('timeupdate', function () {
+  let percent = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = percent + '%';
+  localStorage.setItem('currentPlaybackTime', audio.currentTime);
+});
+
+audio.addEventListener('ended', function () {
+  cur_track++;
+  if (cur_track >= tracklist.length) {
+    cur_track = 0;
+  }
+  audio.src = tracklist[cur_track].url;
+  audio.play();
+  nameSong.innerText = `${tracklist[cur_track].name}`;
+  randomGif();
+});
+
+let savedTime = localStorage.getItem('currentPlaybackTime');
+if (savedTime) {
+  audio.currentTime = savedTime;
+}
 
 function randomGif() {
   let randomNum = Math.floor(Math.random() * gifFiles.length);
   gifBlock.innerHTML = `<img src=${gifFiles[randomNum].url} alt="Gif">`;
 }
-
-
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('player')) {
@@ -28,6 +59,20 @@ document.addEventListener('click', function (e) {
     let el = e.target;
     if (el.id === 'play') {
       audio.src = tracklist[cur_track].url;
+
+      // Вешаем обработчик события "timeupdate" на аудио элемент
+      audio.addEventListener('timeupdate', function () {
+        // Сохраняем текущее время проигрывания в локальное хранилище (localStorage)
+        localStorage.setItem('currentPlaybackTime', audio.currentTime);
+      });
+
+      // Загружаем сохраненное время проигрывания, если оно существует
+      var savedTime = localStorage.getItem('currentPlaybackTime');
+      if (savedTime) {
+        // Устанавливаем время проигрывания на сохраненное значение
+        audio.currentTime = savedTime;
+      }
+
       audio.play();
 
       el.style.display = 'none';
@@ -45,7 +90,7 @@ document.addEventListener('click', function (e) {
       nameSong.innerText = `${tracklist[cur_track].name}`;
     }
 
-    if(el.id === 'random') {
+    if (el.id === 'random') {
       audio.pause();
 
       cur_track = Math.floor(Math.random() * tracklist.length);
@@ -69,9 +114,9 @@ document.addEventListener('click', function (e) {
 
       audio.src = tracklist[cur_track].url;
       audio.play();
-      randomGif()
+      randomGif();
 
-     playSongs.style.display = 'none';
+      playSongs.style.display = 'none';
       stopSongs.style.display = '';
       // console.info(`Играет: ${tracklist[cur_track].name}`);
       nameSong.innerText = `${tracklist[cur_track].name}`;
@@ -91,4 +136,3 @@ document.addEventListener('click', function (e) {
     }
   }
 });
-
